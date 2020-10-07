@@ -7,7 +7,7 @@ module.exports = {
         const channel = await client.channels.cache.get('752690768770236447');
 
         if (message.member.roles.cache.has('749808045516652556')) {
-            if (message.channel.parent.name === 'Ticket Panel') {
+            if (message.channel.parent.name.toLowerCase() === 'Support Tickets') {
                 const claimEmbed = new Discord.MessageEmbed()
                     .setAuthor(message.author.tag, message.author.displayAvatarURL())
                     .addField('Claimer', message.author, true)
@@ -16,8 +16,8 @@ module.exports = {
                 channel.send(claimEmbed);
             } else {
                 await message.channel.send(new Discord.MessageEmbed()
-                    .setAuthor('<= is a clown.', message.author.displayAvatarURL())
-                    .setDescription('Next time, **use this damn command in a ticket channel you infidel**. :)')
+                    .setAuthor('No.', message.author.displayAvatarURL())
+                    .setDescription('No.')
                 )
             }
         } else {
