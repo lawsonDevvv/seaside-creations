@@ -234,6 +234,10 @@ bot.on('message', async message => {
     if (command === 'servermessage') {
         bot.commands.get(command).execute(message, args)
     }
+
+    if (command === 'docs') {
+        bot.commands.get(command).execute(message, args)
+    }
 });
 
 bot.login(TOKEN);
