@@ -126,6 +126,16 @@ bot.on('message', async message => {
     console.log(message.member.hasPermission('ADMINISTRATOR') ? chalk.blue(message.content) : chalk.red(message.content));
 
     if (command === 'help') {
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
         const commandsForHelpCMD = bot.commands.map(m => `-${m.name} | ${m.description}`);
 
         if (!args[0]) {
