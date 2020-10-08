@@ -4,7 +4,7 @@ module.exports = {
     name: 'unmute',
     description: 'Unmutes a person. [STAFF ONLY]',
     execute(message, args) {
-        const target = message.mentions.members.first();
+        const target = message.mentions.members.first() || message.guild.member(args[0]);
 
         const reason = args.slice();
 
