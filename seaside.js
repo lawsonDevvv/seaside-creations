@@ -136,6 +136,7 @@ bot.on('message', async message => {
     // I stole code from PossiblySebo#0001
     // I stole code from PossiblySebo#0001
     // I stole code from PossiblySebo#0001
+    // I stole code from PossiblySebo#0001
         const commandsForHelpCMD = bot.commands.map(m => `-${m.name} | ${m.description}`);
 
         if (!args[0]) {
