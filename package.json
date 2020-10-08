@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "lawsonDevvv (PossiblySebo#0001), MoCeb (MoCeb#2462), Carsom M (Carsom M#4000)",
   "license": "ISC",
   "dependencies": {
     "build-number-generator": "0.0.6",
