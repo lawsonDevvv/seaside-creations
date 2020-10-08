@@ -128,11 +128,29 @@ bot.on('message', async message => {
     if (command === 'help') {
         const commandsForHelpCMD = bot.commands.map(m => `-${m.name} | ${m.description}`);
 
-        await message.channel.send(new Discord.MessageEmbed()
-            .setTitle('Command list:')
-            .setDescription(commandsForHelpCMD)
-            .setColor('RANDOM')
-        );
+        if (!args[0]) {
+            await message.channel.send(new Discord.MessageEmbed()
+                .setTitle('Command list:')
+                .setDescription(commandsForHelpCMD)
+                .setColor('RANDOM')
+            );
+        } else if (args[0]) {
+            const commandToLookUp = bot.commands.get(args[0])
+
+            const embed = new Discord.MessageEmbed()
+                .setTitle("-" + commandToLookUp.name)
+                .setDescription(`-${commandToLookUp.name} || ${commandToLookUp.description}`)
+
+            message.channel.send(embed)
+
+            if (!commandToLookUp) {
+                return await message.channel.send(new Discord.MessageEmbed()
+                    .setTitle('Command list:')
+                    .setDescription(commandsForHelpCMD)
+                    .setColor('RANDOM')
+                );
+            }
+        }
     }
 
     if (message.content.toLowerCase() === `<@${bot.user.id}> prefix`) {
