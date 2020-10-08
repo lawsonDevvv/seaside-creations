@@ -4,12 +4,10 @@ module.exports = {
     name: 'kick',
     description: 'Can you read? [STAFF ONLY]',
     execute(message, args) {
-        const person = message.mentions.members.first();
-
-
+        const person = message.mentions.members.first() || message.guild.member(args[0]);
 
         const kickEmbedWithoutPermissions = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true, format: "png"}))
+            .setAuthor(message.author.tag , message.author.displayAvatarURL({dynamic: true, format: "png"}))
             .setDescription(`Congrats. If you actually thought we would let you kick someone without required perms, you must be delusional. Nice try.`)
             .setFooter('You just earned yourself the muted role.')
 
