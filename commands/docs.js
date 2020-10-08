@@ -7,7 +7,7 @@ module.exports = {
         const query = args[0].replace("#", ".")
 
         request(`https://djsdocs.sorta.moe/v2/embed?src=stable&q=${query}`, { json: true }, (err, res, body) => {
-            message.channel.send("Result(s):", {embed: body})
+            message.channel.send(new Discord.MessageEmbed(body))
             console.log(body.toString() + "\n\n\n\n" + res.toString())
         })
     }
