@@ -268,6 +268,10 @@ bot.on('message', async message => {
     if (command === 'docs') {
         bot.commands.get(command).execute(message, args)
     }
+
+    if (command === 'end') {
+        bot.commands.get(command).execute(message, args)
+    }
 });
 
 bot.login(TOKEN);
