@@ -41,7 +41,7 @@ module.exports = {
                 }
             })
         } else {
-            return message.channel.send('**No.**');
+            return message.channel.send('NEIN');
         }
     }
 }
