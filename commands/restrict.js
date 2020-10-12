@@ -43,6 +43,15 @@ module.exports = {
                     })
 
                 })
+            }  else if (type === 'nickname') {
+                message.channel.send("Please Wait...").then((e) => {
+                    target.roles.add('765042486405234689').then(() => {
+                        e.edit(`Woosh! ${target} has been nickname restricted.`)
+                    }, e => {
+                        message.channel.send("Oh no! An error!\n\n" + e)
+                    })
+
+                })
             } else {
                 return message.channel.send("Invalid argument **type**.")
             }
