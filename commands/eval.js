@@ -5,10 +5,12 @@ module.exports = {
         if(message.author.id !== '415278805683404821') return;
 
         function clean(text) {
-            if (typeof(text) === "string")
+            if (typeof(text) === "string") {
                 return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-            else
+            }
+            else {
                 return text;
+            }
         }
 
         try {
