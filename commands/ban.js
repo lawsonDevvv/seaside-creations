@@ -16,15 +16,17 @@ module.exports = {
                 {time: 30000, max: 1}
             )
 
-            collector.on('end', (collected, reason) => {
+            collector.on('end', async (collected, reason) => {
                 if (reason === 'time') {
-                    message.channel.send(new Discord.MessageEmbed()
+                    await message.channel.send(new Discord.MessageEmbed()
                         .setDescription('Command timed out.')
                     )
                 } else {
                     if (collected.first().content === 'yes') {
-                        message.guild.members.ban(person);
-                        message.channel.send(new Discord.MessageEmbed()
+                        await message.guild.members.ban(person).catch(async (e) => {
+                            message.channel.send(`\`\`\`xl\nERROR\n\n${e}\n\`\`\``)
+                        });
+                        await message.channel.send(new Discord.MessageEmbed()
                             .setDescription(`Successfully yeeted ${person || "[PERSON NOT IN SERVER]"} into oblivion.`)
                         );
                     }
@@ -33,7 +35,7 @@ module.exports = {
                         const e = new Discord.MessageEmbed()
                             .setAuthor('Mercy has been given.')
 
-                        message.channel.send(e)
+                        await message.channel.send(e)
                     }
                 }
             })
