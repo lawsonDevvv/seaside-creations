@@ -4,7 +4,7 @@ module.exports = {
     name: 'ban',
     description: 'Bans a user. What did you expect? [ADMINISTRATOR ONLY]',
     async execute(message, args) {
-        const person = message.mentions.members.first() || message.guild.member(args[0]);
+        const person = message.mentions.members.first() || message.guild.member(args[0]) || args[0];
 
         const reasonForBan = args.slice(1).join(' ')
 
@@ -25,7 +25,7 @@ module.exports = {
                     if (collected.first().content === 'yes') {
                         message.guild.members.ban(person);
                         message.channel.send(new Discord.MessageEmbed()
-                            .setDescription(`Successfully yeeted ${person} into oblivion.`)
+                            .setDescription(`Successfully yeeted ${person || "[PERSON NOT IN SERVER]"} into oblivion.`)
                         );
                     }
 
