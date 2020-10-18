@@ -22,7 +22,7 @@ module.exports = {
                         .setDescription('Command timed out.')
                     )
                 } else {
-                    if (collected.first().content === 'yes') {
+                    if (collected.first().content.toLowerCase() === 'yes') {
                         await message.guild.members.ban(person).catch(async (e) => {
                             message.channel.send(`\`\`\`xl\nERROR\n\n${e}\n\`\`\``)
                         });
@@ -31,7 +31,7 @@ module.exports = {
                         );
                     }
 
-                    if (collected.first().content === 'no') {
+                    if (collected.first().content.toLowerCase() === 'no') {
                         const e = new Discord.MessageEmbed()
                             .setAuthor('Mercy has been given.')
 
