@@ -279,6 +279,10 @@ bot.on('message', async message => {
     if (command === 'end') {
         bot.commands.get(command).execute(message, args)
     }
+
+    if (command === 'ban') {
+        bot.commands.get(command).execute(message, args)
+    }
 });
 
 bot.login(TOKEN);
