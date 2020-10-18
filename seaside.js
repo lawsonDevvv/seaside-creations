@@ -280,7 +280,7 @@ bot.on('message', async message => {
         bot.commands.get(command).execute(message, args)
     }
 
-    if (command === 'ban') {
+    if (command === 'warn') {
         bot.commands.get(command).execute(message, args)
     }
 });
