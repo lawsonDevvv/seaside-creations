@@ -8,6 +8,8 @@ module.exports = {
 }
 */
 
+const sqlite = require("sqlite3").verbose();
+
 const chalk = require('chalk');
 
 require('dotenv').config();
@@ -45,6 +47,11 @@ bot.on('ready', async () => {
     \n    Build Number ${buildNumber}
 [---------------------------------------------------------------]`
     ));
+
+    let db = new sqlite.Database("./databse.db", sqlite.OPEN_READWRITE | sqlite.OPEN_CREATE);
+
+    db.run("CREATE TABLE IF NOT EXISTS warns (SERVER_ID, USER_ID, REASON, CASE_NUMBER, ACTIONED_BY, TYPE)")
+
     await bot.user.setActivity('Version: ' + generate({version: '1.0.3'}))
 });
 
@@ -275,3 +282,7 @@ bot.on('message', async message => {
 });
 
 bot.login(TOKEN);
+
+module.exports = {
+    sqlite
+}
