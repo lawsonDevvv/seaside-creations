@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args) {
         const person = message.mentions.members.first() || message.guild.member(args[0]);
 
-        const reasonForMute = args.slice(2).join(' ');
+        const reasonForMute = args.slice(1).join(' ');
 
         const time = args[1];
 
