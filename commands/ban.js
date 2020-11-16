@@ -5,7 +5,8 @@ module.exports = {
     description: 'Bans a user. What did you expect? [ADMINISTRATOR ONLY]',
     async execute(message, args) {
         const person = message.mentions.members.first() || message.guild.member(args[0]) || args[0];
-
+        if (!person) return message.channel.send(`${message.author} :x: You've failed to provide a UserMention/UserID.`);
+        
         const reasonForBan = args.slice(1).join(' ')
 
         if (message.member.hasPermission("ADMINISTRATOR")) {
