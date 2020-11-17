@@ -28,14 +28,14 @@ module.exports = {
                         .setAuthor('You were too slow. Command timed out. BE FASTER.')
                     message.channel.send(embed);
                 } else {
-                    if (collected.first().content === 'yes') {
+                    if (collected.first().content.toLowerCase() === 'yes') {
                         person.roles.add('749808002231435325', 'This idiot got muted.');
                         message.channel.send(new Discord.MessageEmbed()
                             .setAuthor('Muted ' + person.user.tag + ' for ' + reasonForMute)
                         );
                     }
 
-                    if (collected.first().content === 'no') {
+                    if (collected.first().content.toLowerCase() === 'no') {
                         message.channel.send(new Discord.MessageEmbed()
                             .setAuthor('Mercy has been given.')
                         );
