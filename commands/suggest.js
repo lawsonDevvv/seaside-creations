@@ -25,10 +25,10 @@ module.exports = {
 
             message.channel.send("Thank's for your feedback!")
 
-            suggestionChannel.send(suggestionEmbed).then((e) => {
-                e.react("✅")
-                e.react("🟧")
-                e.react("🚫")
+            suggestionChannel.send(suggestionEmbed).then(async (e) => {
+                await e.react("✅")
+                await e.react("🟧")
+                await e.react("🚫")
             })
         }))
     }
