@@ -283,6 +283,10 @@ bot.on('message', async message => {
     if (command === 'warn') {
         bot.commands.get(command).execute(message, args)
     }
+
+    if (command === "thanksgiving") {
+        bot.commands.get(command).execute(message, args)
+    }
 });
 
 bot.login(TOKEN);
